@@ -1,5 +1,5 @@
 class Player
-  attr_accessor :name
+  attr_accessor :name, :player_moves
   attr_reader :symbol
 
   @@players = 0
@@ -12,5 +12,6 @@ class Player
               else
                 'O'
               end
+    @player_moves = []
   end
 end

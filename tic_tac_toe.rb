@@ -1,3 +1,10 @@
+# TODO
+# Make it better
+# Utilize arrays and more methods do not use these many lines
+# Good Luck
+require_relative 'board'
+require_relative 'player'
+
 class TicTacToe
   @@players = []
 
@@ -53,7 +60,8 @@ class TicTacToe
     puts 'Second player name?'
     name = gets.chomp
     @@players << Player.new(name, 'O')
-
+    board = Board.new
+    board.print_board
     winner = false
     while winner == false
       puts "Your turn #{@@players[0].name}"
@@ -71,48 +79,48 @@ class TicTacToe
 
   def check_winner
     winner = false
-    if @board[1] == 'X' && @board[8] == 'X' && @board[15] == 'X' 
+    if @board[1] == 'X' && @board[8] == 'X' && @board[15] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
-    elsif @board[3] == 'X' && @board[10] == 'X' && @board[17] == 'X' 
+      winner = true
+    elsif @board[3] == 'X' && @board[10] == 'X' && @board[17] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
+      winner = true
     elsif @board[5] == 'X' && @board[12] == 'X' && @board[19] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
+      winner = true
     elsif @board[1] == 'X' && @board[3] == 'X' && @board[5] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
+      winner = true
     elsif @board[8] == 'X' && @board[10] == 'X' && @board[12] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
-    elsif @board[15] == 'X' && @board[17] == 'X' && @board[19] == 'X' 
+      winner = true
+    elsif @board[15] == 'X' && @board[17] == 'X' && @board[19] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
+      winner = true
     elsif @board[1] == 'X' && @board[10] == 'X' && @board[19] == 'X'
       puts "#{@@players[0].name} won!"
-      winner = true 
+      winner = true
     elsif @board[5] == 'X' && @board[10] == 'X' && @board[15] == 'X'
       puts "#{@@players[0].name} won!"
       winner = true
-    elsif @board[3] == 'O' && @board[10] == 'O' && @board[17] == 'O' 
+    elsif @board[3] == 'O' && @board[10] == 'O' && @board[17] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
+      winner = true
     elsif @board[5] == 'O' && @board[12] == 'O' && @board[19] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
+      winner = true
     elsif @board[1] == 'O' && @board[3] == 'O' && @board[5] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
+      winner = true
     elsif @board[8] == 'O' && @board[10] == 'O' && @board[12] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
-    elsif @board[15] == 'O' && @board[17] == 'O' && @board[19] == 'O' 
+      winner = true
+    elsif @board[15] == 'O' && @board[17] == 'O' && @board[19] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
+      winner = true
     elsif @board[1] == 'O' && @board[10] == 'O' && @board[19] == 'O'
       puts "#{@@players[1].name} won!"
-      winner = true 
+      winner = true
     elsif @board[5] == 'O' && @board[10] == 'O' && @board[15] == 'O'
       puts "#{@@players[1].name} won!"
       winner = true
@@ -122,15 +130,6 @@ class TicTacToe
     else
       winner = false
     end
-  end
-end
-
-class Player
-  attr_accessor :name, :symbol
-
-  def initialize(name, symbol)
-    @name = name
-    @symbol = symbol
   end
 end
 

@@ -1,7 +1,8 @@
 class TicTacToe
+  @@players = []
+
   def initialize
     @board = " * * *\n * * *\n * * *"
-    @@players = []
   end
 
   def print_board(move, symbol)
@@ -21,25 +22,25 @@ class TicTacToe
     when '1'
       case move[1]
       when '0'
-        @board[7] = symbol
+        @board[8] = symbol
         puts @board
       when '1'
-        @board[9] = symbol
+        @board[10] = symbol
         puts @board
       when '2'
-        @board[11] = symbol
+        @board[12] = symbol
         puts @board
       end
     when '2'
       case move[1]
       when '0'
-        @board[13] = symbol
-        puts @board
-      when '1'
         @board[15] = symbol
         puts @board
-      when '2'
+      when '1'
         @board[17] = symbol
+        puts @board
+      when '2'
+        @board[19] = symbol
         puts @board
       end
     end
@@ -47,21 +48,50 @@ class TicTacToe
 
   def play_game
     puts 'First player name?'
-    input = gets.chomp.split
-    @@players << Player.new(input[0], input[1])
+    name = gets.chomp
+    @@players << Player.new(name, 'X')
     puts 'Second player name?'
-    input = gets.chomp
-    @@players << Player.new(input[0], input[1])
+    name = gets.chomp
+    @@players << Player.new(name, 'O')
 
     winner = false
     while winner == false
       puts "Your turn #{@@players[0].name}"
       move = gets.chomp.split
       print_board(move, @@players[0].symbol)
+      check_winner
 
       puts "Your turn #{@@players[1].name}"
       move = gets.chomp.split
       print_board(move, @@players[1].symbol)
+      check_winner
+    end
+  end
+
+  def check_winner
+    winner = false
+    if @board[1] && @board[8] && board[15] == 'X' ||
+       @board[3] && @board[10] && board[17] == 'X' ||
+       @board[5] && @board[12] && board[19] == 'X' ||
+       @board[1] && @board[3] && board[5] == 'X' ||
+       @board[8] && @board[10] && board[12] == 'X' ||
+       @board[15] && @board[17] && board[19] == 'X' ||
+       @board[1] && @board[10] && board[19] == 'X' ||
+       @board[5] && @board[10] && board[15] == 'X'
+      puts "#{@@players[0].name} won!"
+      winner = true
+    elsif @board[1] && @board[8] && board[15] == 'O' ||
+          @board[3] && @board[10] && board[17] == 'O' ||
+          @board[5] && @board[12] && board[19] == 'O' ||
+          @board[1] && @board[3] && board[5] == 'O' ||
+          @board[8] && @board[10] && board[12] == 'O' ||
+          @board[15] && @board[17] && board[19] == 'O' ||
+          @board[1] && @board[10] && board[19] == 'O' ||
+          @board[5] && @board[10] && board[15] == 'O'
+      puts "#{@@players[1].name} won!"
+      winner = true
+    else
+      winner
     end
   end
 end

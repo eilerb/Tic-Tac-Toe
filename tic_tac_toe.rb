@@ -70,24 +70,24 @@ class TicTacToe
 
   def check_winner
     winner = false
-    if @board[1] && @board[8] && board[15] == 'X' ||
-       @board[3] && @board[10] && board[17] == 'X' ||
-       @board[5] && @board[12] && board[19] == 'X' ||
-       @board[1] && @board[3] && board[5] == 'X' ||
-       @board[8] && @board[10] && board[12] == 'X' ||
-       @board[15] && @board[17] && board[19] == 'X' ||
-       @board[1] && @board[10] && board[19] == 'X' ||
-       @board[5] && @board[10] && board[15] == 'X'
+    if @board[1] && @board[8] && @board[15] == 'X' ||
+       @board[3] && @board[10] && @board[17] == 'X' ||
+       @board[5] && @board[12] && @board[19] == 'X' ||
+       @board[1] && @board[3] && @board[5] == 'X' ||
+       @board[8] && @board[10] && @board[12] == 'X' ||
+       @board[15] && @board[17] && @board[19] == 'X' ||
+       @board[1] && @board[10] && @board[19] == 'X' ||
+       @board[5] && @board[10] && @board[15] == 'X'
       puts "#{@@players[0].name} won!"
       winner = true
-    elsif @board[1] && @board[8] && board[15] == 'O' ||
-          @board[3] && @board[10] && board[17] == 'O' ||
-          @board[5] && @board[12] && board[19] == 'O' ||
-          @board[1] && @board[3] && board[5] == 'O' ||
-          @board[8] && @board[10] && board[12] == 'O' ||
-          @board[15] && @board[17] && board[19] == 'O' ||
-          @board[1] && @board[10] && board[19] == 'O' ||
-          @board[5] && @board[10] && board[15] == 'O'
+    elsif @board[1] && @board[8] && @board[15] == 'O' ||
+          @board[3] && @board[10] && @board[17] == 'O' ||
+          @board[5] && @board[12] && @board[19] == 'O' ||
+          @board[1] && @board[3] && @board[5] == 'O' ||
+          @board[8] && @board[10] && @board[12] == 'O' ||
+          @board[15] && @board[17] && @board[19] == 'O' ||
+          @board[1] && @board[10] && @board[19] == 'O' ||
+          @board[5] && @board[10] && @board[15] == 'O'
       puts "#{@@players[1].name} won!"
       winner = true
     else

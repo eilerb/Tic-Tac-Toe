@@ -1,11 +1,10 @@
 class Board
   attr_accessor :board, :board_layout
-  attr_reader :row_separator, :column_separator
+  attr_reader :row_separator
 
   def initialize
     @board = Array.new(10)
     @row_separator = '---+---+---'
-    @column_separator = '   |   |   |'
     @board_layout = "
     #{board[1]}   |#{board[2]}   |#{board[3]}
     #{row_separator}
@@ -24,6 +23,6 @@ class Board
   end
 
   def valid_move?(move)
-    
+    board[move].nil?
   end
 end

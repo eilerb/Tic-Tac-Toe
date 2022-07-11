@@ -24,6 +24,7 @@ class TicTacToe
     until winner == true
       turn(player1)
       break if winner?(player1)
+      break if tie?
 
       turn(player2)
       winner?(player2)
@@ -45,6 +46,15 @@ class TicTacToe
         return self.winner = true
       end
     end
+    self.winner = false
+  end
+
+  def tie?
+    if game_board.board.one? { |item| item == ' ' }
+      puts "It's a tie!"
+      return self.winner = true
+    end
+
     self.winner = false
   end
 end

@@ -2,32 +2,34 @@ require_relative 'board'
 require_relative 'player'
 
 class TicTacToe
+  attr_accessor :player1, :player2
+  
   @@players = []
 
   def initialize
-    @board = " * * *\n * * *\n * * *"
+    puts 'First player name?'
+    name = gets.chomp
+    @player1 = Player.new(name)
+    puts 'Second player name?'
+    name = gets.chomp
+    @player2 = Player.new(name)
   end
 
   def play_game
-    puts 'First player name?'
-    name = gets.chomp
-    @@players << Player.new(name, 'X')
-    puts 'Second player name?'
-    name = gets.chomp
-    @@players << Player.new(name, 'O')
+    
     board = Board.new
     board.print_board
     winner = false
     while winner == false
       puts "Your turn #{@@players[0].name}"
       move = gets.chomp.split
-      print_board(move, @@players[0].symbol)
+      board.add_symbol(move, @@players[0].symbol)
       winner = check_winner
       break if winner == true
 
       puts "Your turn #{@@players[1].name}"
       move = gets.chomp.split
-      print_board(move, @@players[1].symbol)
+      board.add_symbol(move, @@players[1].symbol)
       winner = check_winner
     end
   end

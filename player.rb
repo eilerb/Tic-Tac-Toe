@@ -1,8 +1,16 @@
 class Player
-  attr_accessor :name, :symbol
+  attr_accessor :name
+  attr_reader :symbol
 
-  def initialize(name, symbol)
+  @@players = 0
+
+  def initialize(name)
     @name = name
-    @symbol = symbol
+    @@players += 1
+    @symbol = if @@players.odd?
+                'X'
+              else
+                'O'
+              end
   end
 end

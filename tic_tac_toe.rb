@@ -1,7 +1,3 @@
-# TODO
-# Make it better
-# Utilize arrays and more methods do not use these many lines
-# Good Luck
 require_relative 'board'
 require_relative 'player'
 
@@ -10,47 +6,6 @@ class TicTacToe
 
   def initialize
     @board = " * * *\n * * *\n * * *"
-  end
-
-  def print_board(move, symbol)
-    case move[0]
-    when '0'
-      case move[1]
-      when '0'
-        @board[1] = symbol
-        puts @board
-      when '1'
-        @board[3] = symbol
-        puts @board
-      when '2'
-        @board[5] = symbol
-        puts @board
-      end
-    when '1'
-      case move[1]
-      when '0'
-        @board[8] = symbol
-        puts @board
-      when '1'
-        @board[10] = symbol
-        puts @board
-      when '2'
-        @board[12] = symbol
-        puts @board
-      end
-    when '2'
-      case move[1]
-      when '0'
-        @board[15] = symbol
-        puts @board
-      when '1'
-        @board[17] = symbol
-        puts @board
-      when '2'
-        @board[19] = symbol
-        puts @board
-      end
-    end
   end
 
   def play_game

@@ -3,10 +3,7 @@ class Board
   attr_reader :row_separator
 
   def initialize
-    @board = Array.new(10)
-    for i in (0..9)
-      @board[i] = i
-    end
+    @board = Array.new(10, ' ')
     @row_separator = '---+---+---'
   end
 
@@ -21,7 +18,8 @@ class Board
   end
 
   def add_symbol(move, symbol)
-    board[move] = symbol
+    board[move.to_i] = symbol
     print_board
+    puts "\n"
   end
 end

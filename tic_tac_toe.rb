@@ -1,32 +1,39 @@
 class TicTacToe
-  
-  def initialize
+  def initialize; end
 
+  def player_names
+    puts 'First player name?'
+    name = gets.chomp
+    player1 = Player.new(name)
+    puts 'Second player name?'
+    name = gets.chomp
+    player2 = Player.new(name)
   end
 
   def play_game
-    puts 'First player name?'
-    player1 = Player.new(gets.chomp)
-    puts 'Second player name?'
-    player2 = Player.new(gets.chomp)
-  end
+    board = " * * *\n * * *\n * * *"
+    winner = false
+    while winner == false
+      puts "Your turn #{player1.name}"
+      player1_move = gets.chomp.to_i.split
 
-  def board
-    
+      if player1_move[0] == 0
+        if player1_move[1] == 0
+          board[1] = "X"
+        end
+      end
+    end
   end
-
 end
 
 class Player
   attr_accessor :name
 
-  @@player_count = 0
-
   def initialize(name)
     @name = name
-    @@player_count += 1
   end
 end
 
-game = TicTacToe.new()
+game = TicTacToe.new
+game.player_names
 game.play_game
